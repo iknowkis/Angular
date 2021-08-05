@@ -1,5 +1,4 @@
-# PostCrud
-- version 12.1.2.
+version 12.1.2.
 
 ### Tutorial
 - Tour of Heroes
