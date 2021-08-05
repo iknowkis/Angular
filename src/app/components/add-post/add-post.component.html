@@ -1,0 +1,87 @@
+<!-- 
+<h1> 게시글 작성</h1>
+
+<form #form='ngForm' (ngSubmit)="onSubmit(form)">
+      <div>
+          <label for="title"><b>Title</b></label><br>
+          <textarea
+          placeholder="제목"
+          ngModel name='title'
+          autocomplete="off">
+              </textarea>
+      </div>
+      <div>
+          <label for="content"><b>Content</b></label><br>
+          <textarea
+          placeholder="내용"
+          ngModel name='content'
+          autocomplete="off">
+              </textarea>
+      </div>
+  <button
+  type="submit"
+  (click)="goBack()">게시글 작성</button>
+  </form> -->
+  
+<h1> 게시글 작성</h1>
+
+<form
+[formGroup]="PostForm"
+(ngSubmit)="onSubmit()">
+        <div>
+          <label for="title"><b>Title</b></label><br>
+          <input
+          id = 'title'
+          placeholder = "제목"
+          autocomplete="off"
+          formControlName="title"/>
+        </div>
+
+        <div class="required" *ngIf="PostForm.hasError('minlength','title')">
+          Title must be at least<b>4 characters</b> | {{PostForm.value.title.length}}</div>
+
+        <div class="required" *ngIf="PostForm.hasError('maxlength','title')">
+          Title must not exceed<b>20 characters</b> | {{PostForm.value.title.length}} </div>
+
+        <div class="required" *ngIf="PostForm.hasError('required', 'title') && (PostForm.get('title')?.touched || PostForm.get('title')?.dirty)">
+          <b>Title is required</b></div>
+
+        <div class="required" *ngIf="PostForm.hasError('forbiddenName','title')">
+          <b>Forbidden word !</b></div>
+
+        <hr>
+        <div>
+          <label for="content"><b>Content</b></label><br>
+          <input
+          id='content'
+          placeholder="내용"
+          autocomplete="off"
+          formControlName="content"/>
+        </div>
+        
+        <div class="required" *ngIf="PostForm.hasError('maxlength','content')">
+          Title must not exceed <b>300 characters</b> | {{PostForm.value.content.length}} </div>
+
+        <div class="required" *ngIf="PostForm.hasError('required', 'content') && (PostForm.get('content')?.touched || PostForm.get('content')?.dirty)">
+          <b>Content is required </b></div>
+
+          <hr>
+          <div>
+            <label for="mobile"><b>Mobile valiadation test</b></label><br>
+            <input
+            class="mobile"
+            id='mobile'
+            placeholder="전화번호"
+            autocomplete="off"
+            formControlName="mobile"
+            [pattern]=MobileRegExp/>
+          </div>
+          <div class="requiredMobile" *ngIf="PostForm.valid">
+            <b>Mobile number !</b></div>
+
+    <button
+    [disabled]="!PostForm.valid"
+    type="submit"
+    (click)="goBack()"></button>
+  </form>
+

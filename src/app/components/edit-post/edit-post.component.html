@@ -1,0 +1,59 @@
+<!-- <div>
+    <h1>게시글 수정화면</h1>
+    <hr>
+        <form #form='ngForm' *ngIf="selectedPost$ | async as item" (ngSubmit)="update(routeId, form)">
+        <div>
+            <textarea type="text" ngModel={{item.title}} ngModel name='title' autocomplete="off">     
+            </textarea>      
+        </div>
+        <div>
+        <label for="date"><b>{{item.date.toDate() | date: 'medium'}}</b></label>
+        </div>
+        <div>
+            <textarea type="text" ngModel={{item.content}} ngModel name='content' autocomplete="off">
+                </textarea>
+        </div>
+    <button   type="submit" (click)="goBack()">게시글 작성</button>
+    </form> -->
+
+    
+<div>
+    <h1>게시글 수정화면</h1>
+    <hr>
+        <form [formGroup]="PostForm" *ngIf="selectedPost$ | async as item"
+        (ngSubmit)="update(routeId)">
+        <div>
+            <input
+            type="text"
+            ngModel={{item.title}}
+            id='title'
+            autocomplete="off" 
+            formControlName="title"/>
+        </div> <!-- ngModel 없이 입력창에 데이터 유지시키는 법은? -->
+        
+        <p class="required"
+        *ngIf="PostForm.hasError('required', 'title') && PostForm.get('title')?.touched">
+        👆 Title is required
+      </p>
+
+        <div>
+        <label for="date"><b>{{item.date.toDate() | date: 'medium'}}</b></label>
+        </div>
+
+        <div>
+            <input
+            type="text"
+            ngModel={{item.content}}
+            id ='content'
+            autocomplete="off"
+            formControlName="content"/>
+        </div>
+        <p class="required"
+        *ngIf="PostForm.hasError('required', 'content') && PostForm.get('content')?.touched">
+        👆 Content is required
+    </p>
+
+    <button  [disabled]="!PostForm.valid"
+    type="submit"
+    (click)="goBack()"></button>
+    </form>

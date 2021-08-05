@@ -1,0 +1,43 @@
+<div>
+    <h1>게시글 상세화면</h1>
+    <hr>
+    
+<form *ngIf="selectedPost$ | async as item">
+    <div>
+        <label for="title"><b>{{item.title}}</b></label>
+    </div>
+    <div>
+        <label for="date"><b>{{item.date.toDate() | date: 'medium'}}</b></label>
+</div>
+<div>
+    <textarea for="content" type="text" value={{item.content}} >
+        </textarea>
+</div>
+<div>
+    <button routerLink="/app-edit-post/{{routeId}}">글 수정</button>
+    <button (click)="deletePostFunc(routeId)" (click)="goBack()">글 삭제</button>
+</div>
+
+<hr>
+   <div *ngFor="let comment of comments">
+   {{comment.date.toDate() | date: 'medium'}} / {{getRandomString(comment.user)}} {{comment.user}} : <b>{{comment.content}}</b>
+   <button class="DeleteButton" (click)="deleteCommentFunc(routeId,comment.id)">삭제</button>
+</div>
+
+<hr>
+    <label for="Comment-text"><b>댓글 작성</b></label>
+
+<form #form='ngForm' (ngSubmit)="CommentSubmit(routeId,form)">
+    <div class="CommentStyles">
+        <label for="title"><b>작성자</b></label>
+        <input type="User" ngModel name='user' autocomplete="off"/>
+    </div>
+    <div>
+        <label for="content"><b>댓글 내용</b></label>
+        <input type="Comment" ngModel name='content' autocomplete="off"/>
+    </div>
+<button   type="submit">댓글 작성</button>
+</form>
+
+<div>
+</div>

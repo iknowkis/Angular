@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "notice-board-01": {
+      "hosting": {
+        "post-crud": [
+          "notice-board-01"
+        ]
+      }
+    }
+  }
+}

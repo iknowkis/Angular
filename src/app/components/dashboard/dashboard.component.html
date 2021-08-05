@@ -1,0 +1,21 @@
+<div>
+  <h1>게시판 화면</h1>
+  <article>
+   <table id="postTable">
+    <thead>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Date</th>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let post of posts let i = index">
+  
+        <td>{{i+1}}</td>
+        <td><a routerLink="/app-post-detail/{{post.id}}" >{{post.title}}</a></td>
+        <td>{{post.date.toDate() | date: 'short'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+</div>

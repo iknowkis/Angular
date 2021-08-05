@@ -1,0 +1,97 @@
+h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-group {
+  position: relative;
+}
+
+label {
+  padding: 10px 20px;
+}
+input {
+    width: 95%;
+    padding: 12px 20px;
+    margin: 20px 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    border-left: 5px solid red;
+
+  }
+
+  input.mobile.ng-invalid.ng-touched {
+    border: 2px solid rgb(38, 0, 255);
+    border-left: 5px solid rgb(47, 0, 255);
+
+  }
+
+  input.ng-valid.ng-touched {
+    border: 2px solid #04AA6D;
+    border-left: 5px solid #04AA6D;
+  }
+
+  button {
+    width: 20%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }  
+
+  button:after {
+    width: 20%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    content: '게시글 작성';
+  }
+
+  button:hover:enabled:after, button:hover:enabled {
+    background-color: #08754d;
+  }
+
+  button:enabled:after, button:enabled {
+    content: 'Completed !';
+  }
+
+  button:hover:disabled::after, button:hover:disabled{
+    width: 20%;
+    background-color: #d34949;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    content: 'Please fill out !';
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }
+
+  .required::before, .required{
+    color: red;
+    padding: 14px 20px;
+    content:'❌'
+  }
+  .requiredMobile::before, .requiredMobile {
+    color: #04AA6D;
+    padding: 14px 20px;
+    content:'✅'
+  }

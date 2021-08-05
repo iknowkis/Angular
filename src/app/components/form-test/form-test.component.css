@@ -1,0 +1,78 @@
+.firstInfo {
+    margin-top: 5%;
+    padding: 20px 20px;
+}
+.form-group {
+  position: relative;
+}
+
+label {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    border-left: 5px solid red;
+  }
+
+  input.ng-valid.ng-touched {
+    border: 2px solid #04AA6D;
+    border-left: 5px solid #04AA6D;
+  }
+
+  button {
+    width: 120px;
+    background-color: #919caa;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* button:after {
+    content: '등록';
+  } */
+
+  button:hover:enabled:before, button:hover:enabled {
+    background-color: #2060b4;
+  }
+
+  .addButton:enabled:before, .addButton:enabled {
+    background-color: #04AA6D;
+    content: 'ADD !';
+  }
+  
+  button:hover:disabled::before, button:hover:disabled{
+    background-color: #d34949;
+    content: 'Please fill out !';
+  }
+   
+  div {
+    background-color: #eef0ef;
+  }
+  
+  .StuInfo  {
+    display: inline-block;
+  }
+  
+  .required::before, .required{
+    color: red;
+    content: '❌ ';
+  }
+
+  .requiredUser::before, .requiredUser {
+    color: red;
+    content: '❌ ';
+    display: inline-block;
+  }
+
+  .addButton::before{
+    content: '등록';
+  }
+
+  .deleteButton::before {
+    content: 'delete';
+  }
