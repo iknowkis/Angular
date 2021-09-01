@@ -19,6 +19,9 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormTestModule } from './components/form-test/form-test.module';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { StudyNgForModule } from './components/study-ng-for/study-ng-for.module';
+
+
 //
 // import { FirebaseService } from './firebase.service';
 // import { MatSlideToggleModule } from '@angular/material';
@@ -51,7 +54,10 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     
     // MatSlideToggleModule
     ReactiveFormsModule,
-    FormTestModule
+    FormTestModule,
+    
+    StudyNgForModule,
+
   ],
   providers: [
     // AngularFirestore,

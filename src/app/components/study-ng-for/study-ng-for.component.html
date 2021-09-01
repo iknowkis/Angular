@@ -1,0 +1,37 @@
+<div class="center">
+    <h1>
+        To do List
+    </h1>
+</div>
+
+<button (click)="Add()">ADD</button>
+<hr>
+
+<table class="table table-bordered table-sm text-center" style="table-layout:fixed;">
+    <thead>
+        <tr>
+            <th width="20%">#</th>
+            <th>할일</th>
+            <th width="20%">x</th>
+        </tr>
+    </thead>
+
+    <tbody dragula="DRAGULA_FACTS" [(dragulaModel)]="converted" (dragulaModelChange)="helloToDoLists($event)">
+        <tr *ngFor="let toDo of converted; let i = index; trackby: trackById">
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="toDo.text" (ngModelChange)="helloToDoLists($event)">
+            </td>
+            <td>
+                <button (click)="removevalue(i)">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+
+{{toDoLists|json}}
+<hr>
+{{converted|json}}

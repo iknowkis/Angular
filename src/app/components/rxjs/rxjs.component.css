@@ -1,0 +1,32 @@
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  div {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #374fd8;
+    padding: 40px 20px;
+  }  
+
+  .enqueue {
+    background-color: #5b9988;
+  }
+  
+  button {
+    width: 120px;
+    height: 70px;
+    background-color: #8a9aaf;
+    color: white;
+    padding: 0px 20px;
+    margin: 28px 20px 00px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2060b4;
+  }

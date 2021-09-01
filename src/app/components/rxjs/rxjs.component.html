@@ -1,13 +1,15 @@
-<p>rxjs works!</p>
+<div><h1>Queue Count: {{subjectQueueCount-1}}</h1></div>
 
 <!-- <button (click)="promiseEnqueue()">PromiseQEnqueue</button> -->
-<button (click)="enqueue()">Enqueue</button>
 
+<button class="enqueue" (click)="lowPriorityEnqueue()">Low-priority Enqueue</button>
+<button class="enqueue" (click)="highPriorityEnqueue()">High-priority Enqueue</button>
+<button (click)="unsubscribe()">Unsubscribe</button>
+<button (click)="pause()">Pause</button>
+<button (click)="reset()">Reset</button>
+<hr>
 <!-- <button (click)="highPriorityEnqueue()">Enqueue</button> -->
 
-<!-- <div ngModel="subjectQueueuCount">{{subjectQueueuCount}}</div> -->
-
-{{subjectQueueuCount-1}}
 <!--
 
     process line에 넣기
