@@ -35,3 +35,43 @@
 {{toDoLists|json}}
 <hr>
 {{converted|json}}
+<!-- <div class="center">
+    <h1>
+        To do List
+    </h1>
+</div>
+
+<button (click)="Add()">ADD</button>
+<hr>
+
+<form
+[formGroup]="TodoListForm"
+(ngSubmit)="onSubmit()">
+<table class="table table-bordered table-sm text-center" style="table-layout:fixed;">
+    <thead>
+        <tr>
+            <th width="20%">#</th>
+            <th>할일</th>
+            <th width="20%">x</th>
+        </tr>
+    </thead>
+
+    <tbody dragula="DRAGULA_FACTS" [(dragulaModel)]="converted" (dragulaModelChange)="addTodoListFunc">
+        <tr *ngFor="let toDo of converted; let i = index; trackby: trackById">
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                <input type="text" formControlName="toDoList" [(ngModel)]="toDo.todo" (ngModelChange)="addTodoListFunc">
+            </td>
+            <td>
+                <button (click)="deleteTodoListFunc(i)">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+
+{{TodoListForm|json}}
+<hr>
+{{converted|json}} -->

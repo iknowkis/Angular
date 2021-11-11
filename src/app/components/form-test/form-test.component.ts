@@ -118,17 +118,17 @@ export class FormTestComponent implements OnInit {
         [
           Validators.required, duplicatedFieldInNeighborFormValidator(this.infoForms, 'name'),
           Validators.minLength(2),
-          Validators.maxLength(10)
+          Validators.maxLength(10),
         ]],
       age: ['',
         [
           Validators.required,
-           Validators.pattern(this.NumberRegExp)
+          Validators.pattern(this.NumberRegExp)
         ]],
       mobile: ['',
         [
           Validators.required,
-           Validators.pattern(this.MobileRegExp)
+          Validators.pattern(this.MobileRegExp)
         ]]
     })
     // 값 나오는 호출

@@ -20,3 +20,9 @@ export class Infor {
     @Input() age!: number;
     @Input() mobile!: any;
 }
+
+
+export class TodoList {
+    todo!: string;
+    content!: string;
+}

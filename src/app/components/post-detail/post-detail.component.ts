@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators'
 import { Location } from '@angular/common';
 
-import { Comments } from 'src/app/post.model';
+import { Comments } from 'src/app/item.model';
 import { NgForm } from '@angular/forms';
 
 @Component({

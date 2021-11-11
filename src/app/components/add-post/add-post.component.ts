@@ -44,7 +44,7 @@ import { ValidatorFn } from '@angular/forms';
 })
 export class AddPostComponent implements OnInit {
 
-  PostForm!: FormGroup; // !:
+  PostForm!: FormGroup;
 
   MobileRegExp =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 
@@ -72,24 +72,25 @@ export class AddPostComponent implements OnInit {
             Validators.maxLength(20),
             forbiddenNameValidator(/fuck/),
             forbiddenNameValidator(/shit/),
-            forbiddenNameValidator(/ass/)
+            forbiddenNameValidator(/ass/),
           ]
         ],
         content: ['',
         [
         Validators.required,
-        Validators.maxLength(150)
+        Validators.maxLength(300),
         ]
         ],
         mobile: ['',
         [
-        Validators.required
+        Validators.required,
+        Validators.pattern(this.MobileRegExp),
         ]
       ]
     })}
 
   onSubmit() {
-    console.log('dddddd',this.PostForm.value);
+    console.log('createPost',this.PostForm.value);
     this.postService.createPost(this.PostForm.value);
   }
 

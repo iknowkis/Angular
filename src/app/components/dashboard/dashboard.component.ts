@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostService } from 'src/app/post.service';
-import { Post } from 'src/app/post.model';
+import { Post } from 'src/app/item.model';
 
 @Component({
   selector: 'app-dashboard',

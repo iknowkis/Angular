@@ -73,75 +73,87 @@
 
 <form [formGroup]="myForm">
 
-    <div class="firstInfo">
-        <label>
-            User name:
-        </label>
-        <input placeholder="User" formControlName="UserName">
-        <div class="requireduser"
-            *ngIf="myForm.hasError('required', 'UserName') && (myForm.get('UserName')?.touched || myForm.get('UserName')?.dirty)">
-            <b>UserName is required</b>
-        </div>
-        <label>
-            Number of row:
-        </label>
-        <input placeholder="Number" formControlName="NumberOfRow" [pattern]=NumberRegExp>
-        <div class="requiredUser"
-            *ngIf="myForm.hasError('required', 'NumberOfRow') && (myForm.get('NumberOfRow')?.touched || myForm.get('NumberOfRow')?.dirty)">
-            <b>NumberOfRow is required</b>
-        </div>
-    </div>
+    <table class="firstInfo">
+        <td>
+            <label>
+                User name:
+            </label>
+            <input placeholder="User" formControlName="UserName">
+            <div class="requiredUser"
+                *ngIf="myForm.hasError('required', 'UserName') && (myForm.get('UserName')?.touched || myForm.get('UserName')?.dirty)">
+                <b>UserName is required</b>
+            </div>
+        </td>
+        <td>
+            <label>
+                Number of row:
+            </label>
+            <input placeholder="Number" formControlName="NumberOfRow" [pattern]=NumberRegExp>
+            <div class="requiredUser"
+                *ngIf="myForm.hasError('required', 'NumberOfRow') && (myForm.get('NumberOfRow')?.touched || myForm.get('NumberOfRow')?.dirty)">
+                <b>NumberOfRow is required</b>
+            </div>
+        </td>
+    </table>
 
     <button class="addButton" (click)="addInfo()"></button>
-    
-    <div formArrayName="infoArray">
-        <div *ngFor="let infoNum of infoForms.controls let n=index">
+    <div *ngFor="let infoNum of infoForms.controls let n=index">
             <label>Name: </label>{{infoForms.value[n].name}}
             <label>Age: </label>{{infoForms.value[n].age}}
             <label>Mobile: </label>{{infoForms.value[n].mobile}}
-        </div>
-        <hr>
+    </div>
+    <hr>
+    <div>
+        <table formArrayName="infoArray">
 
-        <div *ngFor="let group of infoForms.controls; let i=index" [formGroupName]="i">
+            <td *ngFor="let group of infoForms.controls; let i=index" [formGroupName]="i">
+                <tr>
+                    <div class="StuInfo">
+                        <label for="name">> Name</label>
+                        <input placeholder="name" formControlName="name">
+                    </div>
+                    <div class="required"
+                        *ngIf="group.hasError('required', 'name') && (group.get('name')?.touched || group.get('name')?.dirty)">
+                        <b>Name is required</b>
+                    </div>
+                    <p *ngIf="group.hasError('duplicated', 'name')" class="required">
+                        <b>This name '{{infoForms.value[i].name}}' is duplicated.</b>
+                    </p>
+                </tr>
 
-            <div class="StuInfo">
-                <label for="name">> Name</label>
-                <input placeholder="name" formControlName="name">
-                <div class="required"
-                    *ngIf="group.hasError('required', 'name') && (group.get('name')?.touched || group.get('name')?.dirty)">
-                    <b>Name is required</b>
-                </div>
-                <p *ngIf="group.hasError('duplicated', 'name')">
-                    This name '{{infoForms.value[i].name}}' is duplicated.
-                  </p>
-            </div>
 
-            <div class="StuInfo">
-                <label for="age">Age</label>
-                <input placeholder="age" formControlName="age">
-                <div class="required"
-                    *ngIf="group.hasError('required', 'age') && (group.get('age')?.touched || group.get('age')?.dirty)">
-                    <b>Age is required</b>
-                </div>
-                <div class="required" *ngIf="group.hasError('pattern', 'age')">
-                    <b>Not number !</b>
-                </div>
+                <tr>
+                    <div class="StuInfo">
+                        <label for="age">Age</label>
+                        <input placeholder="age" formControlName="age">
 
-            </div>
+                    </div>
+                    <div class="required"
+                        *ngIf="group.hasError('required', 'age') && (group.get('age')?.touched || group.get('age')?.dirty)">
+                        <b>Age is required</b>
+                    </div>
+                    <div class="required" *ngIf="group.hasError('pattern', 'age')">
+                        <b>Not number !</b>
+                    </div>
+                </tr>
 
-            <div class="StuInfo">
-                <label for="Mobile">Mobile</label>
-                <input placeholder="mobile" formControlName="mobile">
-                <div class="required"
-                    *ngIf="group.hasError('required', 'mobile') && (group.get('mobile')?.touched || group.get('mobile')?.dirty)">
-                    <b>Mobile is required</b>
-                </div>
-            </div>
 
-            <button class="deleteButton" (click)="deleteInfo(i)"></button>
+                <tr>
+                    <div class="StuInfo">
+                        <label for="Mobile">Mobile</label>
+                        <input placeholder="mobile" formControlName="mobile">
+                    </div>
+                    <div class="required"
+                        *ngIf="group.hasError('required', 'mobile') && (group.get('mobile')?.touched || group.get('mobile')?.dirty)">
+                        <b>Mobile is required</b>
+                    </div>
+                </tr>
 
-        </div>
+                <button class="deleteButton" (click)="deleteInfo(i)"></button>
 
+            </td>
+
+        </table>
     </div>
 
 

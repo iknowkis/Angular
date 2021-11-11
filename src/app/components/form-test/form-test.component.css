@@ -66,7 +66,6 @@ label {
   .requiredUser::before, .requiredUser {
     color: red;
     content: '❌ ';
-    display: inline-block;
   }
 
   .addButton::before{

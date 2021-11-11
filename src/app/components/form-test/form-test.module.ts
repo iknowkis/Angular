@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormTestComponent } from './form-test.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Infor } from 'src/app/post.model';
+import { Infor } from 'src/app/item.model';
 
 @NgModule({
   declarations: [

@@ -76,11 +76,17 @@
             formControlName="mobile"
             [pattern]=MobileRegExp/>
           </div>
+          <div class="required" *ngIf="PostForm.hasError('pattern', 'mobile')">
+            <b>Please enter mobile number form !</b></div>
+          <div class="required" *ngIf="PostForm.hasError('required', 'mobile') && (PostForm.get('mobile')?.touched || PostForm.get('mobile')?.dirty)">
+            <b>Mobile number is required </b></div>
+            
+          <hr>
           <div class="requiredMobile" *ngIf="PostForm.valid">
-            <b>Mobile number !</b></div>
+            <b>Enable submit this post !</b></div>
 
     <button
-    [disabled]="!PostForm.valid"
+    [disabled]="PostForm.invalid"
     type="submit"
     (click)="goBack()"></button>
   </form>

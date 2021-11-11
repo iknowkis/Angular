@@ -26,13 +26,7 @@ input {
 
   }
 
-  input.mobile.ng-invalid.ng-touched {
-    border: 2px solid rgb(38, 0, 255);
-    border-left: 5px solid rgb(47, 0, 255);
-
-  }
-
-  input.ng-valid.ng-touched {
+  input.ng-valid.ng-touched input.mobile.ng-invalid.ng-touched {
     border: 2px solid #04AA6D;
     border-left: 5px solid #04AA6D;
   }
